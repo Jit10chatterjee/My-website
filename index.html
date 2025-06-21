@@ -23,7 +23,158 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- AOS Library for Animation -->
+	<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+	<style>
+		#experience {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: #444;
+		}
+
+		.section-title {
+			font-weight: 700;
+			font-size: 2.5rem;
+			color: #6d4d4d;
+		}
+
+		.timeline {
+			position: relative;
+			margin: 2rem 0;
+			padding-left: 40px;
+			border-left: 3px solid #6d4d4d;
+		}
+
+		.timeline-item {
+			position: relative;
+			margin-bottom: 3rem;
+		}
+
+		.timeline-dot {
+			position: absolute;
+			left: -12px;
+			top: 5px;
+			width: 20px;
+			height: 20px;
+			background: #6d4d4d;
+			border-radius: 50%;
+			box-shadow: 0 0 0 4px #f8f8f8;
+		}
+
+		.timeline-content {
+			background: white;
+			padding: 1.6rem 2rem;
+			border-radius: 12px;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+			transition: box-shadow 0.3s ease;
+		}
+
+		.timeline-content:hover {
+			box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+		}
+
+		.company {
+			font-weight: 700;
+			color: #6d4d4d;
+			margin-bottom: 0.3rem;
+		}
+
+		.date {
+			font-weight: 500;
+			font-size: 0.9rem;
+			color: #999;
+			margin-left: 0.8rem;
+		}
+
+		.position {
+			font-weight: 600;
+			margin-bottom: 0.3rem;
+			color: #333;
+		}
+
+		.location {
+			font-style: italic;
+			color: #777;
+			margin-bottom: 1rem;
+		}
+
+		.responsibilities {
+			list-style: disc inside;
+			color: #555;
+			margin-bottom: 1rem;
+			line-height: 1.5;
+		}
+
+		.tech-used {
+			font-weight: 600;
+			font-size: 0.95rem;
+			color: #6d4d4d;
+		}
+
+		.tech-tag {
+			background: #6d4d4d;
+			color: white;
+			padding: 3px 10px;
+			margin-right: 8px;
+			border-radius: 15px;
+			font-size: 0.85rem;
+			display: inline-block;
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			.timeline {
+				padding-left: 20px;
+				border-left: 2px solid #6d4d4d;
+			}
+
+			.timeline-dot {
+				left: -10px;
+				width: 16px;
+				height: 16px;
+				box-shadow: 0 0 0 3px #f8f8f8;
+			}
+		}
+	</style>
+	<style>
+		.education-box {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.education-box:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+		}
+
+		.edu-icon {
+			width: 60px;
+			height: 60px;
+			object-fit: cover;
+			border-radius: 50%;
+			background: #f8f8f8;
+			padding: 8px;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.highlight {
+			font-weight: 600;
+			color: #6d4d4d;
+			font-size: 16px;
+		}
+	</style>
+
+
 </head>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+	AOS.init({
+		duration: 1200,
+		once: true
+	});
+</script>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -41,6 +192,7 @@
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+					<li class="nav-item"><a href="#experience" class="nav-link"><span>Experience</span></a></li>
 					<li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
 					<li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
 					<li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
@@ -66,12 +218,14 @@
 							data-scrollax=" properties: { translateY: '70%' }">
 							<div class="text">
 								<span class="subheading">Hello! I'm Jit Chatterjee</span>
-								<h1 class="mb-4 mt-3">ASP<span>.NET</span>&nbsp;Developer</h1>
+								<h3 class="mb-3 mt-1">FULL-STACK<span>&nbsp;.NET</span>&nbsp;Developer</h3>
 								<h3 class="mb-4 mt-3"><span>Technology</span>&nbsp;Enthusiast</h3>
-								<p><a href="mailto:jitchatterjee36@gmail.com" target="_blank"
-										class="btn btn-primary">Hire me</a> <a
-										href="https://drive.google.com/file/d/1kk6UH1l4URM6TLONy395xFgH8E_pphld/view"
-										target="_blank" class="btn btn-primary btn-outline-primary">Download CV</a></p>
+								<p>
+									<!-- <a href="mailto:jitchatterjee36@gmail.com" target="_blank"
+										class="btn btn-primary">Hire me</a> -->
+									<a href="https://drive.google.com/file/d/1kk6UH1l4URM6TLONy395xFgH8E_pphld/view"
+										target="_blank" class="btn btn-primary btn-outline-primary">Download CV</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -91,7 +245,7 @@
 							<a class="fab fa-linkedin" href="https://www.linkedin.com/in/jit-chatterjee-290b53252/"></a>
 						</div>
 						<div class="text">
-							<strong class="number" data-number="343">0</strong>
+							<strong class="number" data-number="826"></strong>
 							<span>Connections</span>
 						</div>
 					</div>
@@ -110,23 +264,22 @@
 				<div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18 d-flex">
 						<div class="icon d-flex justify-content-center align-items-center">
-							<a class="fab fa-hackerrank" href="https://www.hackerrank.com/profile/jitchatterjee36"></a>
+							<a class="fab fa-python" href="https://www.hackerrank.com/profile/jitchatterjee36"></a>
 						</div>
 						<div class="text">
-							<strong class="number" data-number="88">0</strong>
-							<span>Problem Solved</span>
+							<strong class="number" data-number="5">0</strong>
+							<span>Python <i class="fas fa-star"></i></span>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18 d-flex">
 						<div class="icon d-flex justify-content-center align-items-center">
-							<a class="fab fa-instagram"
-								href="https://www.instagram.com/_j_i_t_c_h_a_t_t_e_r_j_e_e/"></a>
+							<a class="fas fa-database" href="https://www.hackerrank.com/profile/jitchatterjee36"></a>
 						</div>
 						<div class="text">
-							<strong class="number" data-number="140">0</strong>
-							<span>Followers</span>
+							<strong class="number" data-number="3">0</strong>
+							<span>Sql <i class="fas fa-star"></i></span>
 						</div>
 					</div>
 				</div>
@@ -136,39 +289,42 @@
 
 	<section class="ftco-about ftco-section ftco-no-pt ftco-no-pb" id="about-section">
 		<div class="container">
-			<div class="row d-flex no-gutters">
+			<div class="row d-flex no-gutters align-items-center">
+				<!-- Image Column -->
 				<div class="col-md-6 col-lg-5 d-flex">
 					<div class="img-about img d-flex align-items-stretch">
 						<div class="overlay"></div>
-						<div class="img d-flex align-self-stretch align-items-center"
-							style="background-image:url(images/img2.jpg);">
+						<div class="img d-flex align-items-center"
+							style="background-image:url('images/imagesssss.jpg');">
 						</div>
 					</div>
 				</div>
+
+				<!-- Text Column -->
 				<div class="col-md-6 col-lg-7 pl-md-4 pl-lg-5 py-5">
 					<div class="py-md-5">
 						<div class="row justify-content-start pb-3">
 							<div class="col-md-12 heading-section ftco-animate">
 								<span class="subheading">My Intro</span>
 								<h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">About Me</h2>
-								<p>I am a BCA graduate with a CGPA of 9.16, possessing strong knowledge in computer
-									technologies such as Python, Data Structures, ASP.NET, and MS SQL Server. With a
-									keen interest in software development, I am eager to gain hands-on experience in the
-									IT industry. I pride myself on being a quick learner, adapting rapidly to new
-									concepts and technologies, and have a positive attitude towards my career.
-									Currently, I am seeking a challenging position where I can continue to learn, expand
-									my skill set, and contribute to innovative software solutions while achieving
-									professional growth.</p>
+								<p>
+									I am an MCA student and Software Developer Trainee with strong skills in .NET Core,
+									Angular, SQL Server, and RESTful API design. I build scalable, secure, and
+									responsive applications while following modern development practices. Experienced in
+									problem-solving and teamwork, I deliver efficient solutions that meet project goals.
+									Passionate about technology and continuous learning, I aim to contribute effectively
+									to impactful projects and grow professionally in a challenging role.
+								</p>
 
 								<ul class="about-info mt-4 px-md-0 px-2">
 									<li class="d-flex"><span>Name:</span> <span>Jit Chatterjee</span></li>
 									<li class="d-flex"><span>Date of birth:</span> <span>May 08, 2002</span></li>
 									<li class="d-flex"><span>Address:</span> <span>Kolkata, West Bengal</span></li>
-									<li class="d-flex"><span>Zip code:</span> <span>743123</span></li>
 									<li class="d-flex"><span>Email:</span> <span>jitchatterjee36@gmail.com</span></li>
 									<li class="d-flex"><span>Phone: </span> <span>+91-7003408447</span></li>
 								</ul>
 							</div>
+
 							<div class="col-md-12">
 								<div class="my-interest d-lg-flex w-100">
 									<div class="interest-wrap d-flex align-items-center">
@@ -197,12 +353,105 @@
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<style>
+		/* Container for image */
+		.img-about {
+			max-height: 400px;
+			width: 100%;
+			overflow: hidden;
+			border-radius: 10px;
+			position: relative;
+		}
+
+		/* The div with background image */
+		.img-about .img {
+			background-position: center center !important;
+			background-repeat: no-repeat !important;
+			background-size: contain !important;
+			/* Use contain to avoid zoom/crop */
+			width: 100%;
+			min-height: 350px;
+			border-radius: 10px;
+		}
+
+		/* Optional: style overlay if used */
+		.img-about .overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			pointer-events: none;
+		}
+
+		/* Responsive tweak to stack on small screens */
+		@media (max-width: 767px) {
+			.img-about {
+				max-height: 300px;
+			}
+
+			.img-about .img {
+				min-height: 250px;
+			}
+		}
+	</style>
+
+
+	<section id="experience" class="bg-light py-5">
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-8 text-center">
+					<h2 class="section-title mb-3"> Work Experience</h2>
+				</div>
+			</div>
+
+			<div class="timeline">
+				<div class="timeline-item" data-aos="fade-right">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<h4 class="company"><a href="https://www.cyberswift.com/in" target="_blank">CyberSwift Infotech
+								Pvt. Ltd. </a><span class="date">08 2024 – Continue</span></h4>
+						<h5 class="position">Software Trainee Developer</h5>
+						<p class="location">Kolkata, West Bengal</p>
+						<ul class="responsibilities">
+							<li>Developed and maintained scalable web applications using .NET Core, .NET MVC, and
+								Angular, ensuring responsiveness and performance.</li>
+							<li>Designed and implemented RESTful APIs for seamless integration between client-side and
+								server-side components.</li>
+							<li>Optimized database operations and queries using SQL Server, enhancing application
+								efficiency.</li>
+							<li>Collaborated in cross-functional teams to deliver high-quality software solutions,
+								meeting project deadlines and client requirements.</li>
+							<li>Acquired in-depth knowledge of modern development practices, including code
+								modularization and reusability.</li>
+						</ul>
+						<p class="tech-used"><strong>Technology Used:</strong>
+							<span class="tech-tag">.NET Core</span>,
+							<span class="tech-tag">.NET MVC</span>,
+							<span class="tech-tag">WEB API</span>,
+							<span class="tech-tag">SQL Server</span>,
+							<span class="tech-tag">TypeScript</span>
+							<span class="tech-tag">Angular</span>
+							<span class="tech-tag">SSMS</span>
+							<span class="tech-tag">Visual Studio Community</span>
+							<span class="tech-tag">Git</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 
 	<section class="ftco-section bg-light" id="education-section">
 		<div class="container">
@@ -212,39 +461,53 @@
 					<h2 class="mb-2">My Qualifications</h2>
 				</div>
 			</div>
-			<div class="row d-flex justify-content-center col-lg-10  mb-3"
-				style="box-sizing: border-box;box-shadow: 2px 1px 8px #999999;border-radius: 5px;margin: 0 auto;">
-				<div class="col-md-12 p-4">
-					<h3 style="color: #6d4d4d;">Bachelor of Computer Application (BCA)
-						<img src="images/certificate3.png" style="width: 50px;">
-					</h3>
-					<p class="mb-1">Techno India Hooghly, MAKAUT University</p>
-					<p class="mb-1">2020-2023</p>
-					<span style="color: #6d4d4d;">9.16 CGPA</span>
-				</div>
-			</div>
 
-			<div class="row d-flex justify-content-center col-lg-10 mb-3"
-				style="box-sizing: border-box;box-shadow: 2px 1px 8px #999999;border-radius: 5px;margin: 0 auto;">
-				<div class="col-md-12 p-4">
-					<h3 style="color: #6d4d4d;">Higher Secondary (12<sup>th</sup>)
-						<img src="images/schoollogo.jpg" style="width: 50px;">
-					</h3>
-					<p class="mb-1">Bhatpara Amakrishna Pathsala (H.S), WBCHSE Board</p>
-					<p class="mb-1">2019-2020</p>
-					<span style="color: #6d4d4d;">84% marks</span>
-				</div>
-			</div>
 
-			<div class="row d-flex justify-content-center col-lg-10 mb-3"
-				style="box-sizing: border-box;box-shadow: 2px 1px 8px #999999;border-radius: 5px;margin: 0 auto;">
-				<div class="col-md-12 p-4">
-					<h3 style="color: #6d4d4d;">Secondary (10<sup>th</sup>)
-						<img src="images/schoollogo.jpg" style="width: 50px;">
-					</h3>
-					<p class="mb-1">Bhatpara Amakrishna Pathsala (H.S), WBBSE Board</p>
-					<p class="mb-1">2017-2018</p>
-					<span style="color: #6d4d4d;">82% marks</span>
+			<div class="row text-center g-4">
+				<!-- MCA -->
+				<div class="col-md-6 col-lg-3" data-aos="fade-up">
+					<div class="education-box p-4 h-100">
+						<img src="images/certificate3.png" class="edu-icon mb-3" alt="MCA">
+						<h5 class="mb-2">MCA</h5>
+						<p class="mb-1 text-muted">Techno India Hooghly</p>
+						<p class="mb-1 text-muted">MAKAUT University</p>
+						<p class="mb-1">2024 - 2026</p>
+						<span class="highlight">7.52 CGPA</span>
+					</div>
+				</div>
+
+				<!-- BCA -->
+				<div class="col-md-6 col-lg-3" data-aos="fade-up">
+					<div class="education-box p-4 h-100">
+						<img src="images/certificate3.png" class="edu-icon mb-3" alt="BCA">
+						<h5 class="mb-2">BCA</h5>
+						<p class="mb-1 text-muted">Techno India Hooghly</p>
+						<p class="mb-1 text-muted">MAKAUT University</p>
+						<p class="mb-1">2020 - 2023</p>
+						<span class="highlight">9.16 CGPA</span>
+					</div>
+				</div>
+
+				<!-- Higher Secondary -->
+				<div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+					<div class="education-box p-4 h-100">
+						<img src="images/schoollogo.jpg" class="edu-icon mb-3" alt="HS">
+						<h5 class="mb-2">Higher Secondary (12<sup>th</sup>)</h5>
+						<p class="mb-1 text-muted">Bhatpara Amakrishna Pathsala (H.S)</p>
+						<p class="mb-1">2019 - 2020</p>
+						<span class="highlight">84% Marks</span>
+					</div>
+				</div>
+
+				<!-- Secondary -->
+				<div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+					<div class="education-box p-4 h-100">
+						<img src="images/schoollogo.jpg" class="edu-icon mb-3" alt="10th">
+						<h5 class="mb-2">Secondary (10<sup>th</sup>)</h5>
+						<p class="mb-1 text-muted">Bhatpara Amakrishna Pathsala (H.S)</p>
+						<p class="mb-1">2017 - 2018</p>
+						<span class="highlight">82% Marks</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -254,154 +517,166 @@
 	<section class="ftco-section bg-light" id="skills-section">
 		<div class="container">
 			<div class="row justify-content-center pb-5">
-				<div class="col-md-12 heading-section text-center ftco-animate">
+				<div class="col-md-8 text-center" data-aos="fade-up" data-aos-delay="100">
 					<span class="subheading">Skills</span>
 					<h2 class="mb-4">My Skills</h2>
 					<p>I have developed a range of technical skills and provide services in these areas</p>
 				</div>
 			</div>
-			<div class="row progress-circle mb-5">
-				<div class="col-lg-4 mb-4">
-					<div class="bg-white rounded-lg shadow p-4">
-						<h2 class="h5 font-weight-bold text-center mb-4">ASP.NET MVC</h2>
 
-						<!-- Progress bar 1 -->
-						<div class="progress mx-auto" data-value='55'>
-							<span class="progress-left">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<span class="progress-right">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<div
-								class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-								<div class="h2 font-weight-bold" style="margin: 0 auto;">55<sup class="small">%</sup>
-								</div>
-							</div>
-						</div>
-						<!-- END -->
-
+			<div class="row g-4" data-aos="fade-up" data-aos-delay="200">
+				<!-- Skill Block -->
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="./images/mvc.jpg" alt="ASP.NET MVC" />
+						ASP.NET MVC <span class="skill-percent">55%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="55%"></div>
 					</div>
 				</div>
 
-				<div class="col-lg-4 mb-4">
-					<div class="bg-white rounded-lg shadow p-4">
-						<h2 class="h5 font-weight-bold text-center mb-4">ASP.NET Web API</h2>
-
-						<!-- Progress bar 1 -->
-						<div class="progress mx-auto" data-value='50'>
-							<span class="progress-left">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<span class="progress-right">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<div
-								class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-								<div class="h2 font-weight-bold" style="margin: 0 auto;">50<sup class="small">%</sup>
-								</div>
-							</div>
-						</div>
-						<!-- END -->
-
-
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="./images/core.png" alt=".NET Core Web API" />
+						.NET Core Web API <span class="skill-percent">50%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="50%"></div>
 					</div>
 				</div>
 
-				<div class="col-lg-4 mb-4">
-					<div class="bg-white rounded-lg shadow p-4">
-						<h2 class="h5 font-weight-bold text-center mb-4">EF Framework</h2>
-
-						<!-- Progress bar 1 -->
-						<div class="progress mx-auto" data-value='48'>
-							<span class="progress-left">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<span class="progress-right">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<div
-								class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-								<div class="h2 font-weight-bold" style="margin: 0 auto;">48<sup class="small">%</sup>
-								</div>
-							</div>
-						</div>
-						<!-- END -->
-
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="https://img.icons8.com/color/48/angularjs.png" alt="Angular" />
+						Angular <span class="skill-percent">48%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="48%"></div>
 					</div>
 				</div>
 
-				<div class="col-lg-4 mb-4">
-					<div class="bg-white rounded-lg shadow p-4">
-						<h2 class="h5 font-weight-bold text-center mb-4">Microsoft SQL Server</h2>
-
-						<!-- Progress bar 1 -->
-						<div class="progress mx-auto" data-value='62'>
-							<span class="progress-left">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<span class="progress-right">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<div
-								class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-								<div class="h2 font-weight-bold" style="margin: 0 auto;">62<sup class="small">%</sup>
-								</div>
-							</div>
-						</div>
-						<!-- END -->
-
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="./images/1768.sql_logo-768x461.jpg" alt="MS SQL Server" />
+						MS SQL Server <span class="skill-percent">62%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="62%"></div>
 					</div>
 				</div>
 
-				<div class="col-lg-4 mb-4">
-					<div class="bg-white rounded-lg shadow p-4">
-						<h2 class="h5 font-weight-bold text-center mb-4">Data Structure & Algorithms</h2>
-
-						<!-- Progress bar 1 -->
-						<div class="progress mx-auto" data-value='70'>
-							<span class="progress-left">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<span class="progress-right">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<div
-								class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-								<div class="h2 font-weight-bold" style="margin: 0 auto;">70<sup class="small">%</sup>
-								</div>
-							</div>
-						</div>
-						<!-- END -->
-
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="./images/dsa.png" alt="DSA" />
+						Data Structures & Algorithms <span class="skill-percent">70%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="70%"></div>
 					</div>
 				</div>
 
-				<div class="col-lg-4 mb-4">
-					<div class="bg-white rounded-lg shadow p-4">
-						<h2 class="h5 font-weight-bold text-center mb-4">Python</h2>
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="https://img.icons8.com/color/48/python.png" alt="Python" />
+						Python <span class="skill-percent">68%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="68%"></div>
+					</div>
+				</div>
 
-						<!-- Progress bar 1 -->
-						<div class="progress mx-auto" data-value='68'>
-							<span class="progress-left">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<span class="progress-right">
-								<span class="progress-bar border-primary"></span>
-							</span>
-							<div
-								class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-								<div class="h2 font-weight-bold" style="margin: 0 auto;">68<sup class="small">%</sup>
-								</div>
-							</div>
-						</div>
-						<!-- END -->
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="C#" />
+						C# <span class="skill-percent">68%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="68%"></div>
+					</div>
+				</div>
 
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="./images/1_ZfM3MpvwDZGYX4lmzASZKg.png" alt="OOPS" />
+						OOPS <span class="skill-percent">68%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="68%"></div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="https://img.icons8.com/color/48/mysql-logo.png" alt="MySQL" />
+						MySQL <span class="skill-percent">68%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="68%"></div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="skill-label">
+						<img src="https://img.icons8.com/ios-filled/48/jquery.png" alt="jQuery" />
+						jQuery <span class="skill-percent">68%</span>
+					</div>
+					<div class="progress-bar">
+						<div class="progress-fill" data-width="68%"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<style>
+		.skill-label {
+			font-weight: 600;
+			font-size: 1rem;
+			color: #6d4d4d;
+			margin-bottom: 6px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.skill-label img {
+			width: 54px;
+			height: 54px;
+			margin-right: 10px;
+		}
+
+		.progress-bar {
+			background-color: #ddd;
+			border-radius: 8px;
+			height: 14px;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+
+		.progress-fill {
+			height: 100%;
+			background: linear-gradient(90deg, #6d4d4d, #a07c5a);
+			width: 0;
+			border-radius: 8px;
+			transition: width 1.5s ease-in-out;
+		}
+	</style>
+
+	<script>
+		window.addEventListener('load', () => {
+			document.querySelectorAll('.progress-fill').forEach(bar => {
+				const targetWidth = bar.getAttribute('data-width');
+				bar.style.width = targetWidth;
+			});
+		});
+	</script>
+
+
+
+
+
+
 
 	<section class="ftco-section" id="services-section">
 		<div class="container">
@@ -420,7 +695,8 @@
 								class="flaticon-branding"></span></div>
 						<div class="media-body">
 							<h3 class="heading mb-3">Software Development</h3>
-							<p>I deliver robust, scalable applications tailored to your business needs, ensuring quality
+							<p>I deliver robust, scalable applications tailored to your business needs, ensuring
+								quality
 								from design to deployment.</p>
 						</div>
 					</div>
@@ -431,7 +707,8 @@
 								class="flaticon-web-programming"></span></div>
 						<div class="media-body">
 							<h3 class="heading mb-3">Web Development</h3>
-							<p>Providing end-to-end web development services,I deliver robust, scalable applications
+							<p>Providing end-to-end web development services,I deliver robust, scalable
+								applications
 								tailored to your business needs.</p>
 						</div>
 					</div>
@@ -442,7 +719,8 @@
 								class="flaticon-3d-design"></span></div>
 						<div class="media-body">
 							<h3 class="heading mb-3">SQL Developement</h3>
-							<p>Offering expert SQL development services, I create efficient and optimized database
+							<p>Offering expert SQL development services, I create efficient and optimized
+								database
 								solutions to meet your business requirements.</p>
 						</div>
 					</div>
@@ -460,7 +738,8 @@
 						<h2>Have a project on your mind.</h2>
 						<p>Please feel free to reach out to me for any projects or inquiries. I am committed and
 							prepared to deliver exceptional services tailored to your needs.</p>
-						<p class="mb-0"><a href="#contact-section" class="btn btn-white py-3 px-4">Contact me</a></p>
+						<p class="mb-0"><a href="#contact-section" class="btn btn-white py-3 px-4">Contact
+								me</a></p>
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-4 d-flex align-items-end">
@@ -496,7 +775,8 @@
 						style="background-image: url(images/project5.jpg);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
-							<h3><a href="https://github.com/Jit10chatterjee/Restuarant">Front-End Development</a></h3>
+							<h3><a href="https://github.com/Jit10chatterjee/Restuarant">Front-End
+									Development</a></h3>
 							<span>Web Design</span>
 						</div>
 					</div>
@@ -516,7 +796,8 @@
 						style="background-image: url(images/project2.jpg);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
-							<h3><a href="https://github.com/Jit10chatterjee/Policy-Claim-Management">Full-stack Web
+							<h3><a href="https://github.com/Jit10chatterjee/Policy-Claim-Management">Full-stack
+									Web
 									Application</a></h3>
 							<span>Web Development</span>
 						</div>
@@ -561,7 +842,8 @@
 							<div class="testimony-wrap py-4">
 								<div class="text">
 									<span class="fa fa-quote-left"></span>
-									<p class="mb-4 pl-5">Introduction to front-end, course for begineers provided by
+									<p class="mb-4 pl-5">Introduction to front-end, course for begineers
+										provided by
 										coursera.</p>
 									<div class="d-flex align-items-center">
 										<div class="user-img" style="background-image: url(images/certificate1.png)">
@@ -599,7 +881,8 @@
 							<div class="testimony-wrap py-4">
 								<div class="text">
 									<span class="fa fa-quote-left"></span>
-									<p class="mb-4 pl-5">This course provided the OOPS concept of C# language for newly
+									<p class="mb-4 pl-5">This course provided the OOPS concept of C# language
+										for newly
 										entered.</p>
 									<div class="d-flex align-items-center">
 										<div class="user-img" style="background-image: url(images/certificate2.png)">
@@ -618,7 +901,8 @@
 							<div class="testimony-wrap py-4">
 								<div class="text">
 									<span class="fa fa-quote-left"></span>
-									<p class="mb-4 pl-5">This course provided the OOPS concept of Php language for
+									<p class="mb-4 pl-5">This course provided the OOPS concept of Php language
+										for
 										students in industrial training.</p>
 									<div class="d-flex align-items-center">
 										<div class="user-img" style="background-image: url(images/certificate3.png)">
@@ -716,7 +1000,8 @@
 							</div>
 							<div class="text">
 								<p><span>Email:</span> <a
-										href="mailto:jitchatterjee36@gmail.com">jitchatterjee36@gmail.com</a></p>
+										href="mailto:jitchatterjee36@gmail.com">jitchatterjee36@gmail.com</a>
+								</p>
 							</div>
 						</div>
 						<div class="dbox w-100 d-flex">
@@ -749,10 +1034,12 @@
 					<div class="ftco-footer-widget mb-4 ml-md-4">
 						<h2 class="ftco-heading-2">Links</h2>
 						<ul class="list-unstyled">
-							<li><a href="#home-section"><span class="fa fa-chevron-right mr-2"></span>Home</a></li>
+							<li><a href="#home-section"><span class="fa fa-chevron-right mr-2"></span>Home</a>
+							</li>
 							<li><a href="#education-section"><span class="fa fa-chevron-right mr-2"></span>Education</a>
 							</li>
-							<li><a href="#about-section"><span class="fa fa-chevron-right mr-2"></span>About</a></li>
+							<li><a href="#about-section"><span class="fa fa-chevron-right mr-2"></span>About</a>
+							</li>
 							<li><a href="#services-section"><span class="fa fa-chevron-right mr-2"></span>Services</a>
 							</li>
 							<li><a href="#projects-section"><span class="fa fa-chevron-right mr-2"></span>Projects</a>
@@ -838,6 +1125,31 @@
 			);
 
 		}
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 1000,
+			once: true
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 900,
+			once: true,
+		});
+
+		function animateSkills() {
+			document.querySelectorAll('.progress-fill').forEach(bar => {
+				const width = bar.getAttribute('data-width');
+				setTimeout(() => {
+					bar.style.width = width;
+				}, 500);
+			});
+		}
+
+		window.addEventListener('load', animateSkills);
 	</script>
 
 
